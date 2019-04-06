@@ -1,14 +1,14 @@
 ---
-slug: intro-to-blog
-title: Introduction to my upcoming blog
+slug: intro-to-gatsby
+title: Set up and get started with Gatsby
 date: '2019-04-06'
 author: Thiago de Bastos
 description: >-
-  _An introduction to this blog and why I started it in 2019._
+  _Get yourself set up with Gatsby by building a simple blog_
 keywords:
-  - journal
-  - introduction
-  - About me
+  - gatsby
+  - beginner
+  - tutorial
 banner: ./images/banner.jpg
 bannerCredit:
   'Photo by [Some awesome photographer](#)'

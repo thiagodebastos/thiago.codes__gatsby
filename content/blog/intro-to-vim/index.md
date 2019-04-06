@@ -1,22 +1,21 @@
 ---
-slug: intro-to-ssr
-title: Introduction Server Side Rendering
+slug: intro-to-vim
+title: Introduction VIM
 date: '2019-04-07'
 author: Thiago de Bastos
 description: >-
-  _An introduction to Server Side Rendering_
+  _How to set up and get started with Vim_
 keywords:
-  - ssr
-  - server side rendering
-  - SEO
-  - react
-  - next js
+  - tutorial
+  - beginner
+  - vim
+  - productivity
 banner: ./images/banner.jpg
 bannerCredit:
   'Photo by [Some awesome photographer](#)'
 ---
 
-How to server side render and stay hydrated in the process.
+In this post I will introduce you to Vim and help you get started with a basic Javascript development environment.
 
 > Some quote that is going to be mindblowing...
 
