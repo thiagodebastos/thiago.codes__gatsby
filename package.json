@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
+    "@sindresorhus/slugify": "^0.9.1",
     "gatsby": "^2.3.5",
     "gatsby-plugin-emotion": "^4.0.6",
     "gatsby-source-filesystem": "^2.0.28",
@@ -27,7 +28,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
+    "lodash": "^4.17.11",
+    "prettier": "^1.16.4",
+    "remark": "^10.0.1",
+    "strip-markdown": "^3.0.3"
   },
   "repository": {
     "type": "git",

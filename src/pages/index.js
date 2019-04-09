@@ -18,6 +18,8 @@ const tempSectionStyles = css`
 
 export default function Home({ data: { allMarkdownRemark } }) {
   const posts = allMarkdownRemark.edges
+  //  console.log(JSON.stringify(allMarkdownRemark, null, 2))
+  console.log(posts[0])
   return (
     <Layout>
       <section css={tempSectionStyles}>
@@ -35,7 +37,7 @@ export default function Home({ data: { allMarkdownRemark } }) {
             key={post.id}
           >
             <Link
-              to={post.frontmatter.slug}
+              to={post.fields.slug}
               aria-label={`View ${post.frontmatter.title}`}
             >
               <h3>{post.frontmatter.title}</h3>
@@ -87,6 +89,11 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          fields {
+            title
+            slug
+            date
+          }
           excerpt(pruneLength: 130)
           parent {
             ... on File {

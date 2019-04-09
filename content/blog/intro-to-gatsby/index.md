@@ -1,5 +1,5 @@
 ---
-slug: intro-to-gatsby
+slug: "intro-to-gatsby"
 title: Set up and get started with Gatsby
 date: '2019-04-06'
 author: Thiago de Bastos
