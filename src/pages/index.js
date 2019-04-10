@@ -13,13 +13,8 @@ const tempSectionStyles = css`
   }
 `
 
-// TODO Programmatically create pages from data
-// https://www.gatsbyjs.org/tutorial/part-seven/
-
 export default function Home({ data: { allMarkdownRemark } }) {
   const posts = allMarkdownRemark.edges
-  //  console.log(JSON.stringify(allMarkdownRemark, null, 2))
-  console.log(posts[0])
   return (
     <Layout>
       <section css={tempSectionStyles}>
@@ -61,6 +56,7 @@ export default function Home({ data: { allMarkdownRemark } }) {
           >
             {Array.from(Array(6), (_, i) => (
               <div
+                key={i}
                 css={css`
                   background: white;
                   padding: 1.5rem;
@@ -85,7 +81,7 @@ Home.propTypes = {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id

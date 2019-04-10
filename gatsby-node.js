@@ -21,7 +21,7 @@ function createPosts(createPage, edges) {
     createPage({
       path: pagePath,
       component: path.resolve(`./src/templates/blog-post.js`),
-      cotext: {
+      context: {
         id: node.id,
         prev,
         next,
@@ -42,30 +42,34 @@ function createBlogPages({ blogPath, data, actions }) {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const { data, errors } = await graphql(`
-    query {
+    fragment PostDetails on MarkdownRemark {
+      fileAbsolutePath
+      id
+      parent {
+        ... on File {
+          name
+          sourceInstanceName
+        }
+      }
+      excerpt(pruneLength: 250)
+      fields {
+        id
+        title
+        slug
+        description
+        date
+      }
+    }
+    query BlogPostQuery {
       blog: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "//content/blog//" } }
       ) {
         edges {
           node {
-            id
-            parent {
-              ... on File {
-                name
-                sourceInstanceName
-              }
-            }
-            excerpt(pruneLength: 250)
-            fields {
-              title
-              slug
-              description
-              date
-            }
+            ...PostDetails
           }
         }
       }
@@ -73,7 +77,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   if (errors) return Promise.reject(errors)
-  console.log(data)
 
   const { blog } = data
 
