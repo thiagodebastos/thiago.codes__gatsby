@@ -1,5 +1,5 @@
 ---
-slug: intro-to-vim
+slug: "intro-to-vim"
 title: Introduction VIM
 date: '2019-04-07'
 author: Thiago de Bastos
