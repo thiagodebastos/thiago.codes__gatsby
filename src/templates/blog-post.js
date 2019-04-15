@@ -12,7 +12,9 @@ export default function BlogPost({ data }) {
       <h1>{post.fields.title}</h1>
       <header>
         by {post.fields.author}
-        <Img src={post.frontmatter.image.childImageSharp.fluid} />
+        {post.fields.banner && (
+          <Img fluid={post.fields.banner.childImageSharp.fluid} />
+        )}
       </header>
       <article
         dangerouslySetInnerHTML={{
@@ -37,11 +39,8 @@ export const pageQuery = graphql`
         author
         banner {
           childImageSharp {
-            resize(width: 1500, height: 1500) {
-              src
-            }
-            fluid(maxWidth: 786) {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

@@ -89,6 +89,13 @@ export const pageQuery = graphql`
             title
             slug
             date
+            banner {
+              childImageSharp {
+                fluid {
+                  tracedSVG
+                }
+              }
+            }
           }
           excerpt(pruneLength: 130)
           parent {
@@ -101,7 +108,6 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             description
             keywords
-            banner
           }
         }
       }

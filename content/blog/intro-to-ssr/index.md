@@ -11,7 +11,7 @@ keywords:
   - SEO
   - react
   - next js
-banner: ./images/banner.png
+banner: "./banner.png"
 bannerCredit:
   'Photo by [Some awesome photographer](#)'
 ---

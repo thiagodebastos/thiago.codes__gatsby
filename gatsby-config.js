@@ -8,6 +8,9 @@ module.exports = {
     author: "Thiago de Bastos",
   },
   plugins: [
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -22,9 +25,6 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
-    "gatsby-plugin-emotion",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-transformer-remark",
       options: {
