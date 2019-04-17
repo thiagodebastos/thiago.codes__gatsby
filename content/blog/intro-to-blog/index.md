@@ -9,7 +9,7 @@ keywords:
   - journal
   - introduction
   - About me
-banner: ./images/banner.jpg
+banner: ./images/banner.png
 bannerCredit:
   'Photo by [Some awesome photographer](#)'
 ---

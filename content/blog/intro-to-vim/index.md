@@ -10,7 +10,7 @@ keywords:
   - beginner
   - vim
   - productivity
-banner: ./images/banner.jpg
+banner: ./images/banner.png
 bannerCredit:
   'Photo by [Some awesome photographer](#)'
 ---
