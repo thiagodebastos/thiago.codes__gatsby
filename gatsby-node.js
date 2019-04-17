@@ -61,13 +61,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug
         description
         date
-        banner {
-          childImageSharp {
-            fluid {
-              tracedSVG
-            }
-          }
-        }
       }
     }
     query BlogPostQuery {

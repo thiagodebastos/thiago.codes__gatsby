@@ -8,9 +8,6 @@ module.exports = {
     author: "Thiago de Bastos",
   },
   plugins: [
-    "gatsby-plugin-emotion",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -33,13 +30,14 @@ module.exports = {
             resolve: "gatsby-remark-images",
             options: {
               backgroundColor: "#fafafa",
-              maxWidth: 590,
-              showCaptions: true,
-              tracedSVG: true,
+              maxWidth: 720,
             },
           },
         ],
       },
     },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-emotion",
   ],
 }

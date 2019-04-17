@@ -11,7 +11,7 @@ keywords:
   - SEO
   - react
   - next js
-banner: "./banner.png"
+banner: ./images/banner.png
 bannerCredit:
   'Photo by [Some awesome photographer](#)'
 ---
@@ -31,7 +31,7 @@ React, Vue or Angular, the DOM will be empty at this stage. The   client then
 parses your app's bundled code, transforming it into HTML and then injects that
 parsed HTML into the DOM.
 
-![banner-demo](images/banner.png)
+![banner-demo](./images/banner.png)
 
 As mentioned, CSR is the default method of serving an app, and it is therefore
 the easiest - nothing more than developing the front-end app needs to be
