@@ -30,14 +30,21 @@ module.exports = {
             resolve: "gatsby-remark-images",
             options: {
               backgroundColor: "#fafafa",
-              maxWidth: 720,
+              maxWidth: 1035,
             },
           },
+          "gatsby-remark-prismjs",
         ],
       },
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-emotion",
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "src/utils/typography",
+      },
+    },
   ],
 }

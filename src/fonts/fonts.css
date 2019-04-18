@@ -1,0 +1,40 @@
+/* lora-italic - latin */
+@font-face {
+  font-family: "Lora Italic";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Lora Italic"), local("Lora-Italic"),
+    url("lora-v13-latin-italic.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url("lora-v13-latin-italic.woff")
+      format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lora-700 - latin */
+@font-face {
+  font-family: "Lora Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Lora Bold"), local("Lora-Bold"),
+    url("lora-v13-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url("lora-v13-latin-700.woff")
+      format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lora-700italic - latin */
+@font-face {
+  font-family: "Lora Bold Italic";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Lora Bold Italic"), local("Lora-BoldItalic"),
+    url("lora-v13-latin-700italic.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("lora-v13-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lora-regular - latin */
+@font-face {
+  font-family: "Lora Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lora Regular"), local("Lora-Regular"),
+    url("lora-v13-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url("lora-v13-latin-regular.woff")
+      format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

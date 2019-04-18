@@ -1,10 +1,9 @@
 ---
 slug: intro-to-ssr
 title: How to server side render and stay hydrated in the process
-date: '2019-04-07'
+date: 2019-04-02
 author: Thiago de Bastos
-description: >-
-  _An introduction to Server Side Rendering_
+description: _An introduction to Server Side Rendering_
 keywords:
   - ssr
   - server side rendering
@@ -12,26 +11,51 @@ keywords:
   - react
   - next js
 banner: ./images/banner.png
-bannerCredit:
-  'Photo by [Some awesome photographer](#)'
+bannerCredit: "Image by [Katerina Limpitsouni](https://undraw.co/)"
 ---
 
 ## Client Side vs Server Side Rendering
 
 Server-side rendering can reduce time to initial render, improve perceived
 performance,SEO,  and social media sharing integration. To understand what
-Server Side Rendering (SSR) is, and how you can reap the aforementioned
-benefits, let's first dive into Client Side Rendering (CSR) for some context.
+Server Side Rendering is, and how you can reap the aforementioned
+benefits, let's first dive into Client Side Rendering for some context.
 
-### Client Side Rendering CSR is the default method of most sites built with a
+### Client Side Rendering (CSR)
 
+CSR is the default method of most sites built with a
 JavaScript framework - your server will serve a HTML page to the client with
 script tags pointing to your client bundles. If you are using a framework like
 React, Vue or Angular, the DOM will be empty at this stage. The   client then
 parses your app's bundled code, transforming it into HTML and then injects that
 parsed HTML into the DOM.
 
-![banner-demo](./images/banner.png)
+```html
+<div id="app"></div>
+```
+
+```javascript
+const express = require("express")
+const app = express()
+
+app((req, res) => {
+  res.then(x) => x
+})
+
+```
+```jsx{3}
+// During first render
+function Counter() {
+  const count = 0; // Returned by useState()
+  // ...
+  <p>You clicked {count} times</p>
+  // ...
+}
+
+```
+
+Here, we `require` Express and ...
+
 
 As mentioned, CSR is the default method of serving an app, and it is therefore
 the easiest - nothing more than developing the front-end app needs to be
@@ -48,8 +72,9 @@ via social-media sharing.
 > Client side rendering results in poor user experience in medium to large
 > sized apps, poor SEO and poor social media sharing.
 
-### Server Side Rendering SSR is a technique for transforming your JavaScript
+### Server Side Rendering (SSR)
 
+SSR is a technique for transforming your JavaScript
 bundle into static HTML on the server before sending it through to the client
 as part of the server/request response cycle. This gives the user something to
 look at much sooner than with CSR, increasing perceived performance and a
