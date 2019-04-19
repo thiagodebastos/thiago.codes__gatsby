@@ -32,6 +32,7 @@
     "react-dom": "^16.8.6",
     "react-markdown": "^4.0.8",
     "react-typography": "^0.16.19",
+    "typeface-fira-sans": "^0.0.54",
     "typography": "^0.16.19"
   },
   "devDependencies": {

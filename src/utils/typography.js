@@ -1,10 +1,7 @@
 import Typography from "typography"
-import "../fonts/fonts.css"
 
 export const fonts = {
-  regular: "Fira Sans Regular",
-  medium: "Fira Sans Medium",
-  italic: "Fira Sans Italic",
+  default: "Fira Sans",
   code: "Fira Code, menlo, monaco, monospace",
   fallback: [
     "-apple-system",
@@ -24,20 +21,20 @@ const typography = new Typography({
   baseFontSize: "21px",
   baseLineHeight: 1.666,
   scaleRatio: 2,
-  headerFontFamily: [fonts.medium, fonts.fallback],
-  bodyFontFamily: [fonts.regular, fonts.fallback],
+  headerFontFamily: [fonts.default, fonts.fallback],
+  bodyFontFamily: [fonts.default, fonts.fallback],
   overrideStyles: ({ rhythm }) => ({
     pre: { fontFamily: fonts.code },
     code: { fontFamily: fonts.code },
     blockquote: {
-      fontFamily: fonts.italic,
+      fontFamily: fonts.default,
+      fontStyle: "italic",
       position: "relative",
       background: "whitesmoke",
       borderLeft: "4px solid pink",
       marginLeft: 0,
       marginRight: 0,
       padding: "1.3125rem",
-      letterSpacing: "1px",
     },
   }),
 })
