@@ -1,7 +1,7 @@
 ---
 slug: intro-to-ssr
 title: How to server side render and stay hydrated in the process
-date: 2019-04-02
+date: 2019-04-19
 author: Thiago de Bastos
 description: _An introduction to Server Side Rendering_
 keywords:

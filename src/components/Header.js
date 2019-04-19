@@ -1,6 +1,7 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
+import { underConstruction } from "../utils/globalStyles"
 
 export default function Header({ data }) {
   return (
@@ -15,8 +16,10 @@ export default function Header({ data }) {
         }
       `}
       render={data => (
-        <header>
-          <h1>{data.site.siteMetadata.title}</h1>
+        <header css={underConstruction}>
+          <Link to="/">
+            <h1>{data.site.siteMetadata.title}</h1>
+          </Link>
         </header>
       )}
     />
