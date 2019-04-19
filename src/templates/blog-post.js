@@ -4,12 +4,12 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout"
-import { formatDate, readingTime } from "../utils"
+import { formatDate } from "../utils"
 
 export default function BlogPost({ data }) {
   const {
     html,
-    fields: { title, date, banner, bannerCredit, description },
+    fields: { title, date, banner, bannerCredit, description, readingTime },
   } = data.markdownRemark
 
   return (
@@ -19,9 +19,10 @@ export default function BlogPost({ data }) {
           <header>
             <h1>{title}</h1>
             <div>
-              <h3>{formatDate(date)}</h3>
+              <small>{formatDate(date)}</small> &middot;{" "}
+              <small>{readingTime.text}</small>
             </div>
-            <div>{description && <Markdown>{description}</Markdown>}</div>
+            <div>{description && <small>{description}</small>}</div>
             <div>{banner && <Img fluid={banner.childImageSharp.fluid} />}</div>
             <div>{bannerCredit && <Markdown>{bannerCredit}</Markdown>}</div>
           </header>
@@ -46,6 +47,9 @@ export const pageQuery = graphql`
         title
         date
         description
+        readingTime {
+          text
+        }
         bannerCredit
         banner {
           childImageSharp {

@@ -3,8 +3,7 @@ slug: intro-to-blog
 title: Introduction to my upcoming blog
 date: '2019-04-06'
 author: Thiago de Bastos
-description: >-
-  _An introduction to this blog and why I started it in 2019._
+description: An introduction to this blog and why I started it in 2019
 keywords:
   - journal
   - introduction

@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout"
+import { formatDate } from "../utils"
 import { underConstruction } from "../utils/globalStyles"
 
 const tempSectionStyles = css`
@@ -36,6 +37,10 @@ export default function Home({ data: { allMarkdownRemark } }) {
             >
               <h3>{post.frontmatter.title}</h3>
             </Link>
+            <div>
+              <small>{formatDate(post.fields.date)}</small> &middot;{" "}
+              <small>{post.fields.readingTime.text}</small>
+            </div>
             <div>{post.excerpt}</div>
           </div>
         ))}
@@ -90,6 +95,9 @@ export const pageQuery = graphql`
             title
             slug
             date
+            readingTime {
+              text
+            }
             banner {
               childImageSharp {
                 fluid {

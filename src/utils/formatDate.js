@@ -33,12 +33,23 @@ function formatNumber(num) {
 
 function formatDate(d) {
   const date = new Date(d)
-  const formatted = `
-    ${months[date.getMonth()]}
-    ${formatNumber(date.getDate())},
-    ${date.getFullYear()}
-  `
-  return formatted
+  const today = new Date()
+
+  const postedDay = date.getDate()
+  const postedMonth = date.getMonth()
+  const postedYear = date.getFullYear()
+
+  const formattedPostedDay = formatNumber(date.getDate())
+  const formattedPostedMonth = months[date.getMonth()]
+
+  if (today.getDate() === date.getDate()) return "Today"
+
+  if (today.getDate() - date.getDate() === 1) return "Yesterday"
+
+  if (today.getFullYear() === date.getFullYear())
+    return `${formattedPostedMonth} ${formattedPostedDay}`
+
+  return `${formattedPostedMont} ${formattedPostedDay}, ${postedYear}`
 }
 
 export default formatDate

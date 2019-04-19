@@ -3,8 +3,7 @@ slug: "intro-to-vim"
 title: Introduction VIM
 date: '2019-04-07'
 author: Thiago de Bastos
-description: >-
-  _How to set up and get started with Vim_
+description: How to set up and get started with Vim
 keywords:
   - tutorial
   - beginner

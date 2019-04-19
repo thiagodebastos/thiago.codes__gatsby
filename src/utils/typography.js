@@ -28,13 +28,11 @@ const typography = new Typography({
     code: { fontFamily: fonts.code },
     blockquote: {
       fontFamily: fonts.default,
-      fontStyle: "italic",
-      position: "relative",
       background: "whitesmoke",
       borderLeft: "4px solid pink",
       marginLeft: 0,
       marginRight: 0,
-      padding: "1.3125rem",
+      padding: "1.5rem",
     },
   }),
 })

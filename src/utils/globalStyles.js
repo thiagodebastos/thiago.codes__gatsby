@@ -17,6 +17,8 @@ export const base = css`
     padding: 1.3125rem;
     max-width: 42rem;
   }
+
+  },
 `
 export const syntax = css`
   code[class*="language-"],
