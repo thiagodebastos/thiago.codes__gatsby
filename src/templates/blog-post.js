@@ -1,26 +1,36 @@
 import React from "react"
+import Markdown from "react-markdown"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout"
+import { formatDate } from "../utils"
 
 export default function BlogPost({ data }) {
-  const post = data.markdownRemark
+  const {
+    html,
+    fields: { title, date, banner, bannerCredit, description, readingTime },
+  } = data.markdownRemark
 
   return (
     <Layout>
-      <h1>{post.fields.title}</h1>
-      <header>
-        by {post.fields.author}
-        {post.fields.banner && (
-          <Img fluid={post.fields.banner.childImageSharp.fluid} />
-        )}
-      </header>
-      <article
-        dangerouslySetInnerHTML={{
-          __html: post.html,
-        }}
-      />
+      <main>
+        <article>
+          <header>
+            <h1>{title}</h1>
+            <div>
+              <small>{formatDate(date)}</small> &middot;{" "}
+              <small>{readingTime.text}</small>
+            </div>
+            <div>{description && <small>{description}</small>}</div>
+            <div>{banner && <Img fluid={banner.childImageSharp.fluid} />}</div>
+            <div>{bannerCredit && <Markdown>{bannerCredit}</Markdown>}</div>
+          </header>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <footer>article footer</footer>
+        </article>
+      </main>
+      <aside>aside content...</aside>
     </Layout>
   )
 }
@@ -36,7 +46,11 @@ export const pageQuery = graphql`
       fields {
         title
         date
-        author
+        description
+        readingTime {
+          text
+        }
+        bannerCredit
         banner {
           childImageSharp {
             fluid(maxWidth: 1000) {

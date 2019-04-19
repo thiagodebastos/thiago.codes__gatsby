@@ -3,10 +3,10 @@ import { graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout"
+import { formatDate } from "../utils"
+import { underConstruction } from "../utils/globalStyles"
 
 const tempSectionStyles = css`
-  border: 1px dashed rebeccapurple;
-  background: #ede7f6;
   padding: 1rem;
   &:not(:last-child) {
     margin-bottom: 40px;
@@ -17,7 +17,7 @@ export default function Home({ data: { allMarkdownRemark } }) {
   const posts = allMarkdownRemark.edges
   return (
     <Layout>
-      <section css={tempSectionStyles}>
+      <section css={[tempSectionStyles, underConstruction]}>
         <h2>Blog</h2>
         {posts.map(({ node: post }) => (
           <div
@@ -37,11 +37,15 @@ export default function Home({ data: { allMarkdownRemark } }) {
             >
               <h3>{post.frontmatter.title}</h3>
             </Link>
+            <div>
+              <small>{formatDate(post.fields.date)}</small> &middot;{" "}
+              <small>{post.fields.readingTime.text}</small>
+            </div>
             <div>{post.excerpt}</div>
           </div>
         ))}
       </section>
-      <section css={tempSectionStyles}>
+      <section css={[tempSectionStyles, underConstruction]}>
         <h2> Projects</h2>
         <div>
           <h3>
@@ -70,7 +74,9 @@ export default function Home({ data: { allMarkdownRemark } }) {
           </div>
         </div>
       </section>
-      <footer css={tempSectionStyles}>Footer section</footer>
+      <footer css={[tempSectionStyles, underConstruction]}>
+        Footer section
+      </footer>
     </Layout>
   )
 }
@@ -89,6 +95,9 @@ export const pageQuery = graphql`
             title
             slug
             date
+            readingTime {
+              text
+            }
             banner {
               childImageSharp {
                 fluid {
