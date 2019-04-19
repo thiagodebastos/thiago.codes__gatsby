@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout"
-import formatDate from "../utils/formatDate"
+import { formatDate, readingTime } from "../utils"
 
 export default function BlogPost({ data }) {
   const {
@@ -14,16 +14,22 @@ export default function BlogPost({ data }) {
 
   return (
     <Layout>
-      <header>
-        <h1>{title}</h1>
-        <div>
-          <h3>{formatDate(date)}</h3>
-        </div>
-        {banner && <Img fluid={banner.childImageSharp.fluid} />}
-        {bannerCredit && <Markdown>{bannerCredit}</Markdown>}
-        {description && <Markdown>{description}</Markdown>}
-      </header>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <main>
+        <article>
+          <header>
+            <h1>{title}</h1>
+            <div>
+              <h3>{formatDate(date)}</h3>
+            </div>
+            <div>{description && <Markdown>{description}</Markdown>}</div>
+            <div>{banner && <Img fluid={banner.childImageSharp.fluid} />}</div>
+            <div>{bannerCredit && <Markdown>{bannerCredit}</Markdown>}</div>
+          </header>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <footer>article footer</footer>
+        </article>
+      </main>
+      <aside>aside content...</aside>
     </Layout>
   )
 }

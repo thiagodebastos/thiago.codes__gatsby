@@ -1,15 +1,32 @@
 import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
+import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import Header from "./Header"
 
 export const globalStyles = css`
+  * {
+    box-sizing: inherit;
+  }
+
+  html {
+    overflow-y: scroll;
+    box-sizing: border-box;
+  }
+
   body {
+    margin-left: auto;
+    margin-right: auto;
     background-color: white;
-    display: grid;
-    max-width: 740px;
-    margin: 0 auto;
+    padding: 1.3125rem;
+    max-width: 42rem;
+  }
+`
+const syntaxStyles = css`
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-family: "Fira Code", menlo, monaco, monospace;
   }
   /* Code blocks */
   pre[class*="language-"] {
@@ -43,15 +60,14 @@ export const globalStyles = css`
   /* Inline code */
   :not(pre) > code[class*="language-"] {
     border-radius: 0.3em;
-    background: var(--inlineCode-bg);
-    color: var(--inlineCode-text);
-    padding: 0.15em 0.2em 0.05em;
+    background: white;
+    color: #cc99cd;
+    padding: 0.25em 0.25em 0.15em;
     white-space: normal;
   }
 
   .token.attr-name {
     color: rgb(173, 219, 103);
-    font-style: italic;
   }
 
   .token.comment {
@@ -65,6 +81,7 @@ export const globalStyles = css`
 
   .token.variable {
     color: rgb(214, 222, 235);
+    font-weight: bold;
   }
 
   .token.number {
@@ -96,6 +113,7 @@ export const globalStyles = css`
   .token.operator,
   .token.keyword {
     color: #ffa7c4;
+    background: unset;
   }
 
   .token.boolean {
@@ -119,13 +137,13 @@ export const globalStyles = css`
     position: relative;
   }
   .gatsby-highlight-code-line {
-    background-color: hsla(207, 95%, 15%, 1);
+    background-color: #f5eeee;
     display: block;
     margin-right: -1.3125rem;
     margin-left: -1.3125rem;
-    padding-right: 1em;
-    padding-left: 1.25em;
-    border-left: 0.25em solid #ffa7c4;
+    padding-right: calc(1.3125rem - 0.25em);
+    padding-left: calc(1.3125rem - 0.25em);
+    border-left: 0.25em solid pink;
   }
 
   .gatsby-highlight {
@@ -133,12 +151,13 @@ export const globalStyles = css`
     margin-left: -1.3125rem;
     margin-right: -1.3125rem;
     border-radius: 10px;
-    background: #011627;
+    background-color: whitesmoke;
     -webkit-overflow-scrolling: touch;
     overflow: auto;
   }
 
-  @media (max-width: 672px) {
+  /* TODO: make media query respond to ems */
+  @media (max-width: 882px) {
     .gatsby-highlight {
       border-radius: 0;
     }
@@ -147,9 +166,9 @@ export const globalStyles = css`
   .gatsby-highlight pre[class*="language-"] {
     float: left;
     min-width: 100%;
+    background-color: whitesmoke;
   }
 `
-
 function Layout({ data, frontmatter = {}, children }) {
   const {
     site: {
@@ -165,11 +184,11 @@ function Layout({ data, frontmatter = {}, children }) {
   } = frontmatter
 
   return (
-    <>
-      <Global styles={globalStyles} />
+    <div>
+      <Global styles={[globalStyles, syntaxStyles]} />
       <Header>Site header</Header>
-      <main>{children}</main>
-    </>
+      <div>{children}</div>
+    </div>
   )
 }
 

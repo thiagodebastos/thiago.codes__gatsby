@@ -34,27 +34,6 @@ parsed HTML into the DOM.
 <div id="app"></div>
 ```
 
-```javascript
-const express = require("express")
-const app = express()
-
-app((req, res) => {
-  res.then(x) => x
-})
-
-```
-```jsx{3}
-// During first render
-function Counter() {
-  const count = 0; // Returned by useState()
-  // ...
-  <p>You clicked {count} times</p>
-  // ...
-}
-
-```
-
-Here, we `require` Express and ...
 
 
 As mentioned, CSR is the default method of serving an app, and it is therefore
@@ -90,6 +69,37 @@ when the next one down the page has a fancy image of a collapsing star?!
 
 > Most search engines, sometimes including Google, cannot accurately and
 > reliably crawl JavaScript applications.
+
+#### Server Rendering example TK
+
+We begin by rendering our application to a string on the server:
+```javascript{12-13}
+// server.js
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const express = require('express')
+const path = require('path')
+const App = require('./src/App')
+const app = express();
+
+app.use('/', express.static(path.join(__dirname, 'dist')));
+
+app.get('*', (req, res) => {
+  const html = ReactDOMServer.renderToString(<App />);
+  res.send(html)
+});
+
+app.listen(3000, () => console.log('listening on port 3000'));
+```
+
+The string is then passed down to the client and consumed by `ReactDOM.hydrate`:
+```javascript{5}
+// client.js
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.hydrate(<App />)
+```
 
 But before you get too excited and decide that SSR and decide to make it our
 only tool, some drawbacks of SSR must be acknowledged.
