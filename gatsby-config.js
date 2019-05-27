@@ -8,6 +8,7 @@ module.exports = {
     author: "Thiago de Bastos",
   },
   plugins: [
+    "gatsby-plugin-typescript",
     {
       resolve: "gatsby-source-filesystem",
       options: {
