@@ -1,6 +1,6 @@
-import React from "react"
+import * as React from "react"
 
-const About = () => (
+const About: React.FunctionComponent = () => (
   <div>
     <h1>Who am I?</h1>
     <p>Such wow. Very React.</p>

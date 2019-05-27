@@ -1,12 +1,34 @@
-import React from "react"
+import * as React from "react"
 import Markdown from "react-markdown"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import PropTypes from "prop-types"
+import Img, { FluidObject } from "gatsby-image"
 import Layout from "../components/Layout"
 import { formatDate } from "../utils"
 
-export default function BlogPost({ data }) {
+interface BlogPostWithData {
+  children: React.ReactElement[]
+  data: {
+    markdownRemark: {
+      html: string
+      fields: {
+        title: string
+        date: string
+        banner: {
+          childImageSharp: {
+            fluid: FluidObject
+          }
+        }
+        bannerCredit: string
+        description: string
+        readingTime: {
+          text: string
+        }
+      }
+    }
+  }
+}
+
+export default ({ data }: BlogPostWithData) => {
   const {
     html,
     fields: { title, date, banner, bannerCredit, description, readingTime },
@@ -33,10 +55,6 @@ export default function BlogPost({ data }) {
       <aside>aside content...</aside>
     </Layout>
   )
-}
-
-BlogPost.propTypes = {
-  data: PropTypes.object,
 }
 
 export const pageQuery = graphql`

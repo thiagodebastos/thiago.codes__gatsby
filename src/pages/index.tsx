@@ -1,10 +1,37 @@
-import React from "react"
+import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
-import PropTypes from "prop-types"
 import Layout from "../components/Layout"
 import { formatDate } from "../utils"
 import { underConstruction } from "../utils/globalStyles"
+
+interface PageProps {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+    allMarkdownRemark: {
+      edges: Array<{
+        node: {
+          id: string
+          excerpt: string
+          frontmatter: {
+            title: string
+          }
+          fields: {
+            slug: string
+            date: string
+            readingTime: {
+              text: string
+            }
+          }
+        }
+      }>
+    }
+  }
+}
 
 const tempSectionStyles = css`
   padding: 1rem;
@@ -13,7 +40,9 @@ const tempSectionStyles = css`
   }
 `
 
-export default function Home({ data: { allMarkdownRemark } }) {
+const Home: React.FunctionComponent<PageProps> = ({
+  data: { allMarkdownRemark },
+}) => {
   const posts = allMarkdownRemark.edges
   return (
     <Layout>
@@ -81,10 +110,6 @@ export default function Home({ data: { allMarkdownRemark } }) {
   )
 }
 
-Home.propTypes = {
-  data: PropTypes.object,
-}
-
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -123,3 +148,4 @@ export const pageQuery = graphql`
     }
   }
 `
+export default Home
