@@ -37,6 +37,7 @@
     "react-dom": "^16.8.6",
     "react-markdown": "^4.0.8",
     "react-typography": "^0.16.19",
+    "tailwind.macro": "^0.5.10",
     "typeface-fira-sans": "^0.0.54",
     "typography": "^0.16.19"
   },
@@ -53,6 +54,7 @@
     "prettier": "^1.17.0",
     "remark": "^10.0.1",
     "strip-markdown": "^3.0.3",
+    "tailwindcss": "^1.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",
