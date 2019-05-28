@@ -31,7 +31,7 @@ function formatNumber(num: number): string {
   }
 }
 
-function formatDate(d: string) {
+function formatDate(d: string): string {
   const date = new Date(d)
   const today = new Date()
 

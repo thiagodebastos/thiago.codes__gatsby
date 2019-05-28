@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 import { formatDate } from "../utils"
 import { underConstruction } from "../utils/globalStyles"
 
-interface PageProps {
+interface PageData {
   data: {
     site: {
       siteMetadata: {
@@ -40,7 +40,7 @@ const tempSectionStyles = css`
   }
 `
 
-const Home: React.FunctionComponent<PageProps> = ({
+const Home: React.FunctionComponent<PageData> = ({
   data: { allMarkdownRemark },
 }) => {
   const posts = allMarkdownRemark.edges
