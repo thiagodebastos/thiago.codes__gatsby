@@ -10,6 +10,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn develop",
     "serve": "gatsby serve",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
@@ -21,6 +23,8 @@
     "gatsby-plugin-catch-links": "^2.0.13",
     "gatsby-plugin-emotion": "^4.0.6",
     "gatsby-plugin-sharp": "^2.0.34",
+    "gatsby-plugin-tslint": "^0.0.2",
+    "gatsby-plugin-typescript": "^2.0.15",
     "gatsby-plugin-typography": "^2.2.13",
     "gatsby-remark-images": "^3.0.10",
     "gatsby-remark-prismjs": "^3.2.8",
@@ -37,6 +41,9 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "@types/react": "^16.8.18",
+    "@types/react-dom": "^16.8.4",
+    "@types/typography": "^0.16.2",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.17.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
@@ -45,7 +52,13 @@
     "lodash": "^4.17.11",
     "prettier": "^1.17.0",
     "remark": "^10.0.1",
-    "strip-markdown": "^3.0.3"
+    "strip-markdown": "^3.0.3",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.4.5"
   },
   "repository": {
     "type": "git",

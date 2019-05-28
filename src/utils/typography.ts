@@ -17,12 +17,11 @@ export const fonts = {
 }
 
 const typography = new Typography({
-  theme: "default",
   baseFontSize: "21px",
   baseLineHeight: 1.666,
   scaleRatio: 2,
-  headerFontFamily: [fonts.default, fonts.fallback],
-  bodyFontFamily: [fonts.default, fonts.fallback],
+  headerFontFamily: [fonts.default, ...fonts.fallback],
+  bodyFontFamily: [fonts.default, ...fonts.fallback],
   overrideStyles: ({ rhythm }) => ({
     pre: { fontFamily: fonts.code },
     code: { fontFamily: fonts.code },

@@ -13,7 +13,7 @@ const months = [
   "December",
 ]
 
-function formatNumber(num) {
+function formatNumber(num: number): string {
   const lastNum = num
     .toString()
     .split("")
@@ -31,7 +31,7 @@ function formatNumber(num) {
   }
 }
 
-function formatDate(d) {
+function formatDate(d: string) {
   const date = new Date(d)
   const today = new Date()
 
@@ -49,7 +49,7 @@ function formatDate(d) {
   if (today.getFullYear() === date.getFullYear())
     return `${formattedPostedMonth} ${formattedPostedDay}`
 
-  return `${formattedPostedMont} ${formattedPostedDay}, ${postedYear}`
+  return `${formattedPostedMonth} ${formattedPostedDay}, ${postedYear}`
 }
 
 export default formatDate

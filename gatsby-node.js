@@ -20,7 +20,7 @@ function createPosts(createPage, edges) {
 
     createPage({
       path: pagePath,
-      component: path.resolve(`./src/templates/blog-post.js`),
+      component: path.resolve(`./src/templates/blog-post.tsx`),
       context: {
         id: node.id,
         prev,
