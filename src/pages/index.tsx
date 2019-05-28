@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
-import Layout from "../components/Layout"
+import { Layout, SiteHeader } from "../components"
 import { formatDate } from "../utils"
 import { underConstruction } from "../utils/globalStyles"
 
@@ -46,6 +46,7 @@ const Home: React.FunctionComponent<PageData> = ({
   const posts = allMarkdownRemark.edges
   return (
     <Layout>
+      <SiteHeader />
       <section css={[tempSectionStyles, underConstruction]}>
         <h2>Blog</h2>
         {posts.map(({ node: post }) => (

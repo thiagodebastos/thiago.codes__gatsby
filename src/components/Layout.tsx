@@ -7,7 +7,6 @@ const Layout: React.FunctionComponent = props => {
   return (
     <div>
       <Global styles={globalStyles} />
-      <Header />
       <div>{props.children}</div>
     </div>
   )
