@@ -3,9 +3,28 @@ const path = require("path")
 module.exports = {
   siteMetadata: {
     title: "thiago.codes",
+    subtitle: "My learnings as a software engineer",
     description: "My learnings as a software engineer",
     keywords: "",
     author: "Thiago de Bastos",
+    menuItems: [
+      {
+        name: "WORK",
+        link: "#",
+      },
+      {
+        name: "WRITING",
+        link: "#",
+      },
+      {
+        name: "HOBBIES",
+        link: "#",
+      },
+      {
+        name: "GITHUB",
+        link: "#",
+      },
+    ],
   },
   plugins: [
     "gatsby-plugin-typescript",

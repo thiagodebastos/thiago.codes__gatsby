@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
 import { Layout, HeroHeader } from "../components"
 import { formatDate } from "../utils"
+import { CardGrid } from "../components"
+import tw from "tailwind.macro"
 
 interface PageData {
   data: {
@@ -40,7 +42,13 @@ const Home: React.FunctionComponent<PageData> = ({
     <Layout>
       <HeroHeader />
       <section>
-        <h2>Blog</h2>
+        <header css={tw`bg-gray-pale py-2 px-8 mb-8`}>
+          <h4>WORK</h4>
+        </header>{" "}
+        <CardGrid />
+      </section>
+      <section>
+        <h4>Blog</h4>
         {posts.map(({ node: post }) => (
           <div
             css={css`
@@ -66,35 +74,6 @@ const Home: React.FunctionComponent<PageData> = ({
             <div>{post.excerpt}</div>
           </div>
         ))}
-      </section>
-      <section>
-        <h2> Projects</h2>
-        <div>
-          <h3>
-            An epic use of <code>css-grid</code>
-          </h3>
-          <div
-            css={css`
-              display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-              grid-gap: 1rem;
-            `}
-          >
-            {Array.from(Array(6), (_, i) => (
-              <div
-                key={i}
-                css={css`
-                  background: white;
-                  padding: 1.5rem;
-                  grid-column-start: span 1;
-                  border-radius: 0.5rem;
-                `}
-              >
-                Project {i + 1}
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
       <footer>Footer section</footer>
     </Layout>

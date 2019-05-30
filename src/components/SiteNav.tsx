@@ -1,9 +1,18 @@
 import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import tw from "tailwind.macro"
 
+interface NavData {
+  site: {
+    siteMetadata: {
+      menuItems: Array<{ name: string; link: string }>
+    }
+  }
+}
+
 const Nav = styled.nav`
-  ${tw`border-black border`}
+  ${tw`border-black border font-sans`}
 `
 
 const NavItemList = styled.ul`
@@ -18,21 +27,33 @@ const NavLink = styled.a`
 `
 
 const SiteNav: React.FunctionComponent = () => {
+  const data: NavData = useStaticQuery(graphql`
+    query SiteNavQuery {
+      site {
+        siteMetadata {
+          menuItems {
+            name
+            link
+          }
+        }
+      }
+    }
+  `)
+
+  const {
+    site: {
+      siteMetadata: { menuItems },
+    },
+  } = data
+
   return (
     <Nav>
       <NavItemList>
-        <NavItem>
-          <NavLink href="#">WORK</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#">WRITING</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#">HOBBIES</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#">GITHUB</NavLink>
-        </NavItem>
+        {menuItems.map(el => (
+          <NavItem key={el.name}>
+            <NavLink href={el.link}>{el.name}</NavLink>
+          </NavItem>
+        ))}
       </NavItemList>
     </Nav>
   )

@@ -7,6 +7,7 @@ interface HeroHeaderData {
     siteMetadata: {
       title: string
       description: string
+      author: string
     }
   }
 }
@@ -18,6 +19,7 @@ const HeroHeader: React.FunctionComponent = () => {
         siteMetadata {
           title
           description
+          author
         }
       }
     }
@@ -25,16 +27,15 @@ const HeroHeader: React.FunctionComponent = () => {
 
   const {
     site: {
-      siteMetadata: { title, description },
+      siteMetadata: { title, description, author },
     },
   } = data
 
-  console.log(tw`bg-black`)
   return (
-    <header css={tw`mx-auto bg-blue-pale px-12 py-20`}>
+    <header css={tw`bg-blue-pale px-8 py-40`}>
       <div>
-        <h3>Thiago de Bastos. Developer in Sydney.</h3>
-        <h1 css={tw`text-5xl`}>{description}</h1>
+        <h3>{author}. Developer in Sydney.</h3>
+        <h1 css={tw`text-3xl md:text-5xl`}>{description}</h1>
       </div>
     </header>
   )

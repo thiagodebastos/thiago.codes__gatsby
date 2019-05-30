@@ -1,25 +1,26 @@
-import { css, keyframes } from "@emotion/core"
+import { css } from "@emotion/core"
 import tw from "tailwind.macro"
+import * as normalize from "normalize.css"
 
 export const base = css`
-  * {
-    box-sizing: inherit;
-  }
+  ${normalize};
 
   html {
-    overflow-y: scroll;
-    box-sizing: border-box;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
+    font-smooth: always;
   }
 
   body {
     background-color: ${tw`bg-white`};
+    ${tw`font-sans`};
   }
 `
 
 export const syntax = css`
   code[class*="language-"],
   pre[class*="language-"] {
-    font-family: "Fira Code", menlo, monaco, monospace;
+    ${tw`font-mono`};
   }
   /* Code blocks */
   pre[class*="language-"] {
