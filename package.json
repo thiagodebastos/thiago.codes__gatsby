@@ -49,6 +49,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "gatsby-plugin-webpack-size": "^0.0.3",
     "lodash": "^4.17.11",
     "prettier": "^1.17.0",
     "remark": "^10.0.1",
