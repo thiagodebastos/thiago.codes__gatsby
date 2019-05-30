@@ -1,4 +1,5 @@
 import { css, keyframes } from "@emotion/core"
+import tw from "tailwind.macro"
 
 export const base = css`
   * {
@@ -11,15 +12,10 @@ export const base = css`
   }
 
   body {
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    padding: 1.3125rem;
-    max-width: 42rem;
+    background-color: ${tw`bg-white`};
   }
-
-  },
 `
+
 export const syntax = css`
   code[class*="language-"],
   pre[class*="language-"] {
@@ -165,30 +161,6 @@ export const syntax = css`
     min-width: 100%;
     background-color: whitesmoke;
   }
-`
-const slide = keyframes`
-  100% {
-    background-position: 100% 100%;
-  }
-`
-
-export const underConstruction = css`
-  position: relative;
-  background: repeating-linear-gradient(
-    45deg,
-    ivory,
-    ivory 10px,
-    whitesmoke 10px,
-    whitesmoke 20px
-  );
-  &:before {
-    content: "⚠️ Under Construction ⚠️";
-    position: absolute;
-    top: -1.5rem;
-    left: 0;
-  }
-  background-size: 200% 200%;
-  animation: ${slide} 20s linear infinite;
 `
 
 const globalStyles = [base, syntax]

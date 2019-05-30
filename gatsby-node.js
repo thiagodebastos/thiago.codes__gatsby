@@ -205,16 +205,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.onCreateBabelConfig = ({ actions: { setBabelPlugin } }) => {
-  setBabelPlugin({
-    name: "babel-plugin-tailwind",
-    options: {
-      config: "./src/tailwind.js",
-      format: "auto",
-    },
-  })
-}
-
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import css from "@emotion/css"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import tw from "tailwind.macro"
 
@@ -33,7 +33,7 @@ const Header: React.FunctionComponent = () => {
   return (
     <StyledHeader>
       test
-      <div css={css(tw`bg-black`)}>BLUE</div>
+      <div css={tw`bg-black`}>BLUE</div>
       <Link to="/">
         <h1>{data.site.siteMetadata.title}</h1>
       </Link>

@@ -1,13 +1,10 @@
 import * as React from "react"
-import { Global } from "@emotion/core"
-import Header from "./Header"
-import { globalStyles } from "../utils"
+import { SiteNav } from "./"
 
 const Layout: React.FunctionComponent = props => {
   return (
     <div>
-      <Global styles={globalStyles} />
-      <Header />
+      <SiteNav />
       <div>{props.children}</div>
     </div>
   )

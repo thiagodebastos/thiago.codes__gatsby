@@ -1,9 +1,8 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import { css } from "@emotion/core"
-import Layout from "../components/Layout"
+import { Layout, HeroHeader } from "../components"
 import { formatDate } from "../utils"
-import { underConstruction } from "../utils/globalStyles"
 
 interface PageData {
   data: {
@@ -33,20 +32,14 @@ interface PageData {
   }
 }
 
-const tempSectionStyles = css`
-  padding: 1rem;
-  &:not(:last-child) {
-    margin-bottom: 40px;
-  }
-`
-
 const Home: React.FunctionComponent<PageData> = ({
   data: { allMarkdownRemark },
 }) => {
   const posts = allMarkdownRemark.edges
   return (
     <Layout>
-      <section css={[tempSectionStyles, underConstruction]}>
+      <HeroHeader />
+      <section>
         <h2>Blog</h2>
         {posts.map(({ node: post }) => (
           <div
@@ -74,7 +67,7 @@ const Home: React.FunctionComponent<PageData> = ({
           </div>
         ))}
       </section>
-      <section css={[tempSectionStyles, underConstruction]}>
+      <section>
         <h2> Projects</h2>
         <div>
           <h3>
@@ -103,9 +96,7 @@ const Home: React.FunctionComponent<PageData> = ({
           </div>
         </div>
       </section>
-      <footer css={[tempSectionStyles, underConstruction]}>
-        Footer section
-      </footer>
+      <footer>Footer section</footer>
     </Layout>
   )
 }
