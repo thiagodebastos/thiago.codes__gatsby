@@ -36,17 +36,9 @@
     "react-dom": "^16.8.6",
     "react-markdown": "^4.0.8",
     "react-typography": "^0.16.19",
-<<<<<<< HEAD
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.0.2",
-    "typeface-fira-sans": "^0.0.54",
-    "typography": "^0.16.19"
-||||||| merged common ancestors
-    "typeface-fira-sans": "^0.0.54",
-    "typography": "^0.16.19"
-=======
     "typeface-fira-sans": "^0.0.54"
->>>>>>> master
   },
   "devDependencies": {
     "@types/react": "^16.8.19",
