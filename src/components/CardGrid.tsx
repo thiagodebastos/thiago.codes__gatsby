@@ -1,6 +1,7 @@
 import * as React from "react"
 import tw from "tailwind.macro"
 import { Card } from "./"
+import img from "../../public/temp_card_image.png"
 
 const CardGrid: React.FunctionComponent = () => {
   return (
@@ -15,7 +16,7 @@ const CardGrid: React.FunctionComponent = () => {
       `}
     >
       {Array.from(Array(6), (_, i) => (
-        <Card bgImgUrl="test.jpg" key={i} />
+        <Card bgImgUrl={img} key={i} />
       ))}
     </div>
   )
