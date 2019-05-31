@@ -16,13 +16,13 @@ const Nav = styled.nav`
 `
 
 const NavItemList = styled.ul`
-  ${tw`list-none flex flex-grow justify-between px-2 py-4 text-xs`}
+  ${tw`list-none ml-auto flex flex-grow justify-around px-2 py-4 text-xs`}
 `
 
 const NavItem = styled.li``
 
 const NavLink = styled.a`
-  ${tw`hover:text-cyan no-underline`}
+  ${tw`hover:text-cyan no-underline font-bold text-black `}
   transition: color 0.25s;
 `
 
