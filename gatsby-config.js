@@ -9,20 +9,29 @@ module.exports = {
     author: "Thiago de Bastos",
     menuItems: [
       {
+        name: "H",
+        link: "/",
+        external: false,
+      },
+      {
         name: "WORK",
-        link: "#",
+        link: "/#work",
+        external: false,
       },
       {
         name: "WRITING",
-        link: "#",
+        link: "/#writing",
+        external: false,
       },
       {
         name: "HOBBIES",
         link: "#",
+        external: false,
       },
       {
         name: "GITHUB",
-        link: "#",
+        link: "https://github.com/thiagodebastos",
+        external: true,
       },
     ],
   },

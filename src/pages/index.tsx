@@ -41,13 +41,13 @@ const Home: React.FunctionComponent<PageData> = ({
   return (
     <Layout>
       <HeroHeader />
-      <section css={tw`mb-8`}>
+      <section id="work" css={tw`mb-8`}>
         <header css={tw`bg-cyan-pale py-2 px-8 mb-8`}>
           <h4>WORK</h4>
         </header>{" "}
         <CardGrid />
       </section>
-      <section css={tw`mb-8`}>
+      <section id="writing" css={tw`mb-8`}>
         <header css={tw`bg-cyan-pale py-2 px-8 mb-8`}>
           <h4>BLOG</h4>
         </header>{" "}

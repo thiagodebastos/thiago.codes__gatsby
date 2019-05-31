@@ -1,12 +1,19 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import tw from "tailwind.macro"
+
+interface MenuItem {
+  name: string
+  link: string
+  external: boolean
+}
 
 interface NavData {
   site: {
     siteMetadata: {
-      menuItems: Array<{ name: string; link: string }>
+      menuItems: Array<MenuItem>
     }
   }
 }
@@ -19,12 +26,28 @@ const NavItemList = styled.ul`
   ${tw`list-none ml-auto flex flex-grow justify-around px-2 py-4 text-xs`}
 `
 
-const NavItem = styled.li``
-
-const NavLink = styled.a`
-  ${tw`hover:text-cyan no-underline font-bold text-black `}
+const linkStyles = css`
+  ${tw`hover:text-cyan no-underline font-bold text-black`}
   transition: color 0.25s;
 `
+
+const NavItem: React.FunctionComponent<MenuItem> = ({
+  name,
+  link,
+  external,
+}) => (
+  <li>
+    {external ? (
+      <a href={link} target="_blank" rel="noopener noreferrer" css={linkStyles}>
+        {name}
+      </a>
+    ) : (
+      <Link to={link} css={linkStyles}>
+        {name}
+      </Link>
+    )}
+  </li>
+)
 
 const SiteNav: React.FunctionComponent = () => {
   const data: NavData = useStaticQuery(graphql`
@@ -34,6 +57,7 @@ const SiteNav: React.FunctionComponent = () => {
           menuItems {
             name
             link
+            external
           }
         }
       }
@@ -50,9 +74,7 @@ const SiteNav: React.FunctionComponent = () => {
     <Nav>
       <NavItemList>
         {menuItems.map(el => (
-          <NavItem key={el.name}>
-            <NavLink href={el.link}>{el.name}</NavLink>
-          </NavItem>
+          <NavItem key={el.name} {...el} />
         ))}
       </NavItemList>
     </Nav>
