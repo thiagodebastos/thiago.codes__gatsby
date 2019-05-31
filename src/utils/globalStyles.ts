@@ -25,7 +25,7 @@ export const syntax = css`
   /* Code blocks */
   pre[class*="language-"] {
     overflow: auto;
-    padding: 1.3125rem;
+    ${tw`p-5`}
   }
 
   pre[class*="language-"]::-moz-selection {
@@ -53,8 +53,8 @@ export const syntax = css`
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
+    ${tw`bg-white`}
     border-radius: 0.3em;
-    background: white;
     color: #cc99cd;
     padding: 0.25em 0.25em 0.15em;
     white-space: normal;
