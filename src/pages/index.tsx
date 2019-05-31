@@ -41,36 +41,32 @@ const Home: React.FunctionComponent<PageData> = ({
   return (
     <Layout>
       <HeroHeader />
-      <section>
-        <header css={tw`bg-gray-pale py-2 px-8 mb-8`}>
+      <section css={tw`mb-8`}>
+        <header css={tw`bg-cyan-pale py-2 px-8 mb-8`}>
           <h4>WORK</h4>
         </header>{" "}
         <CardGrid />
       </section>
-      <section>
-        <h4>Blog</h4>
+      <section css={tw`mb-8`}>
+        <header css={tw`bg-cyan-pale py-2 px-8 mb-8`}>
+          <h4>BLOG</h4>
+        </header>{" "}
         {posts.map(({ node: post }) => (
-          <div
-            css={css`
-              background: white;
-              padding: 1.5rem;
-              border-radius: 0.5rem;
-              &:not(:last-child) {
-                margin-bottom: 40px;
-              }
-            `}
-            key={post.id}
-          >
-            <Link
-              to={post.fields.slug}
-              aria-label={`View ${post.frontmatter.title}`}
-            >
-              <h3>{post.frontmatter.title}</h3>
-            </Link>
-            <div>
-              <small>{formatDate(post.fields.date)}</small> &middot;{" "}
-              <small>{post.fields.readingTime.text}</small>
+          <div key={post.id} css={tw`px-8`}>
+            <div css={tw`text-cyan-800`}>
+              <Link
+                to={post.fields.slug}
+                css={tw`no-underline text-cyan-900 hover:text-cyan no-underline`}
+                aria-label={`View ${post.frontmatter.title}`}
+              >
+                <h3>{post.frontmatter.title}</h3>
+              </Link>
             </div>
+            <span css={tw`text-cyan-800`}>
+              <small css={tw`text-xs`}>{formatDate(post.fields.date)}</small>{" "}
+              &middot;{" "}
+              <small css={tw`text-xs`}>{post.fields.readingTime.text}</small>
+            </span>
             <div>{post.excerpt}</div>
           </div>
         ))}
