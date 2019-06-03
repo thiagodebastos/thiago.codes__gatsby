@@ -62,12 +62,14 @@ const Home: React.FunctionComponent<PageData> = ({
                 <h3>{post.frontmatter.title}</h3>
               </Link>
             </div>
-            <span css={tw`text-cyan-800`}>
-              <small css={tw`text-xs`}>{formatDate(post.fields.date)}</small>{" "}
-              &middot;{" "}
-              <small css={tw`text-xs`}>{post.fields.readingTime.text}</small>
-            </span>
-            <div>{post.excerpt}</div>
+            <div className="hidden-content" css={tw`hidden`}>
+              <span css={tw`text-cyan-800`}>
+                <small css={tw`text-xs`}>{formatDate(post.fields.date)}</small>{" "}
+                &middot;{" "}
+                <small css={tw`text-xs`}>{post.fields.readingTime.text}</small>
+              </span>
+              <div>{post.excerpt}</div>
+            </div>
           </div>
         ))}
       </section>
