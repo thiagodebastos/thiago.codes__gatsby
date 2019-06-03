@@ -2,7 +2,7 @@ import * as React from "react"
 import Markdown from "react-markdown"
 import { graphql } from "gatsby"
 import Img, { FluidObject } from "gatsby-image"
-import Layout from "../components/Layout"
+import { Layout, Header } from "../components"
 import { formatDate } from "../utils"
 
 interface BlogPostWithData {
@@ -37,6 +37,7 @@ export default ({ data }: BlogPostWithData) => {
   return (
     <Layout>
       <main>
+        <Header />
         <article>
           <header>
             <h1>{title}</h1>

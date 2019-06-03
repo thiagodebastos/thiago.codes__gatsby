@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { underConstruction } from "../utils/globalStyles"
+import styled from "@emotion/styled"
+import tw from "tailwind.macro"
 
 interface HeaderData {
   site: {
@@ -9,6 +10,10 @@ interface HeaderData {
     }
   }
 }
+
+const StyledHeader = styled.header`
+  ${tw`bg-blue text-red`}
+`
 
 const Header: React.FunctionComponent = () => {
   const data: HeaderData = useStaticQuery(graphql`
@@ -21,11 +26,12 @@ const Header: React.FunctionComponent = () => {
     }
   `)
   return (
-    <header css={underConstruction}>
+    <StyledHeader>
+      <div css={tw`bg-black`}>BLUE</div>
       <Link to="/">
         <h1>{data.site.siteMetadata.title}</h1>
       </Link>
-    </header>
+    </StyledHeader>
   )
 }
 

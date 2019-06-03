@@ -1,34 +1,31 @@
-import { css, keyframes } from "@emotion/core"
+import { css } from "@emotion/core"
+import tw from "tailwind.macro"
+import * as normalize from "normalize.css"
 
 export const base = css`
-  * {
-    box-sizing: inherit;
-  }
+  ${normalize};
 
   html {
-    overflow-y: scroll;
-    box-sizing: border-box;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
+    font-smooth: always;
   }
 
   body {
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    padding: 1.3125rem;
-    max-width: 42rem;
+    background-color: ${tw`bg-white`};
+    ${tw`font-sans`};
   }
-
-  },
 `
+
 export const syntax = css`
   code[class*="language-"],
   pre[class*="language-"] {
-    font-family: "Fira Code", menlo, monaco, monospace;
+    ${tw`font-mono`};
   }
   /* Code blocks */
   pre[class*="language-"] {
     overflow: auto;
-    padding: 1.3125rem;
+    ${tw`p-5`}
   }
 
   pre[class*="language-"]::-moz-selection {
@@ -56,8 +53,8 @@ export const syntax = css`
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
+    ${tw`bg-white`}
     border-radius: 0.3em;
-    background: white;
     color: #cc99cd;
     padding: 0.25em 0.25em 0.15em;
     white-space: normal;
@@ -165,30 +162,6 @@ export const syntax = css`
     min-width: 100%;
     background-color: whitesmoke;
   }
-`
-const slide = keyframes`
-  100% {
-    background-position: 100% 100%;
-  }
-`
-
-export const underConstruction = css`
-  position: relative;
-  background: repeating-linear-gradient(
-    45deg,
-    ivory,
-    ivory 10px,
-    whitesmoke 10px,
-    whitesmoke 20px
-  );
-  &:before {
-    content: "⚠️ Under Construction ⚠️";
-    position: absolute;
-    top: -1.5rem;
-    left: 0;
-  }
-  background-size: 200% 200%;
-  animation: ${slide} 20s linear infinite;
 `
 
 const globalStyles = [base, syntax]

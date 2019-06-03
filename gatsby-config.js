@@ -3,9 +3,37 @@ const path = require("path")
 module.exports = {
   siteMetadata: {
     title: "thiago.codes",
+    subtitle: "My learnings as a software engineer",
     description: "My learnings as a software engineer",
     keywords: "",
     author: "Thiago de Bastos",
+    menuItems: [
+      {
+        name: "H",
+        link: "/",
+        external: false,
+      },
+      {
+        name: "WORK",
+        link: "/#work",
+        external: false,
+      },
+      {
+        name: "WRITING",
+        link: "/#writing",
+        external: false,
+      },
+      {
+        name: "HOBBIES",
+        link: "#",
+        external: false,
+      },
+      {
+        name: "GITHUB",
+        link: "https://github.com/thiagodebastos",
+        external: true,
+      },
+    ],
   },
   plugins: [
     "gatsby-plugin-typescript",
@@ -43,10 +71,8 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-emotion",
     {
-      resolve: "gatsby-plugin-typography",
-      options: {
-        pathToConfigModule: "src/utils/typography",
-      },
+      resolve: "gatsby-plugin-webpack-size",
+      options: { development: true },
     },
   ],
 }
