@@ -33,9 +33,9 @@ const HeroHeader: React.FunctionComponent = () => {
 
   return (
     <header
-      css={tw`bg-gray-100 text-gray-900 px-8 py-4 md:py-32 flex justify-center`}
+      css={tw`bg-gray-100 text-gray-900 px-8 py-4 md:py-12 flex justify-center`}
     >
-      <div css={tw`max-w-lg`}>
+      <div css={tw`max-w-xl`}>
         <h4 css={tw`w-48 md:w-auto`}>{author}. Developer in Sydney.</h4>
         <h1 css={tw`text-3xl md:text-5xl`}>{description}</h1>
       </div>

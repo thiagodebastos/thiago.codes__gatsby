@@ -9,6 +9,7 @@ export const base = css`
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
     font-smooth: always;
+    font-size: 18px;
   }
 
   body {

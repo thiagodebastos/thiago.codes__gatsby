@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { Layout, HeroHeader, Footer } from "../components"
+import { Layout, HeroHeader, SiteFooter } from "../components"
 import { formatDate } from "../utils"
 import tw from "tailwind.macro"
 
@@ -39,26 +39,32 @@ const Home: React.FunctionComponent<PageData> = ({
   return (
     <Layout>
       <HeroHeader />
-      <section id="writing" css={tw`mt-8 max-w-xl mx-auto flex-auto`}>
-        {posts.map(({ node: post }) => (
-          <div key={post.id} css={tw`px-8`}>
-            <div>
+      <section id="writing" css={tw`mt-8 flex flex-auto px-8 justify-center`}>
+        <div css={tw`max-w-xl flex-auto`}>
+          {posts.map(({ node: post }) => (
+            <div key={post.id}>
               <Link
                 to={post.fields.slug}
                 css={tw`text-gray-900 hover:text-gray no-underline`}
                 aria-label={`View ${post.frontmatter.title}`}
               >
-                <h3 css={tw`mb-2`}>{post.frontmatter.title}</h3>
+                <h3 css={tw`mb-0`}>{post.frontmatter.title}</h3>
               </Link>
-              <span css={tw`text-gray-800`}>
-                <small css={tw`text-xs`}>{formatDate(post.fields.date)}</small>{" "}
-                &middot;{" "}
-                <small css={tw`text-xs`}>{post.fields.readingTime.text}</small>
-              </span>
-              <div>{post.excerpt}</div>
+              <div css={tw`hidden`}>
+                <span css={tw`text-gray-400`}>
+                  <small css={tw`text-xs`}>
+                    {formatDate(post.fields.date)}
+                  </small>{" "}
+                  &middot;{" "}
+                  <small css={tw`text-xs`}>
+                    {post.fields.readingTime.text}
+                  </small>
+                </span>
+                <div css={tw`text-sm text-gray`}>{post.excerpt}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
     </Layout>
   )
