@@ -3,19 +3,15 @@ const path = require("path")
 module.exports = {
   siteMetadata: {
     title: "thiago.codes",
-    subtitle: "My learnings as a software engineer",
-    description: "My learnings as a software engineer",
+    subtitle: "I want to give knowledge back to the community.",
+    description: "I want to give knowledge back to the community.",
     keywords: "",
     author: "Thiago de Bastos",
+    github: "https://github.com/thiagodebastos",
     menuItems: [
       {
-        name: "H",
+        name: "HOME",
         link: "/",
-        external: false,
-      },
-      {
-        name: "WORK",
-        link: "/#work",
         external: false,
       },
       {
@@ -27,11 +23,6 @@ module.exports = {
         name: "HOBBIES",
         link: "#",
         external: false,
-      },
-      {
-        name: "GITHUB",
-        link: "https://github.com/thiagodebastos",
-        external: true,
       },
     ],
   },
