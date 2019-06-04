@@ -9,7 +9,7 @@ interface CardProps {
 const Card: React.FunctionComponent<CardProps> = ({ bgImgUrl }) => {
   return (
     <div
-      css={tw`rounded overflow-hidden shadow-lg mx-auto mb-6 md:px-4 md:w-1/3`}
+      css={tw`rounded overflow-hidden shadow-lg mx-auto mb-6 md:px-4 md:w-1/3 max-w-sm`}
     >
       <div
         css={css`
