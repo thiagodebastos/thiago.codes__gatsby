@@ -1,18 +1,20 @@
 import * as React from "react"
 import { Global, css } from "@emotion/core"
-import { SiteNav } from "./"
+import { SiteNav, SiteFooter } from "./"
 import { globalStyles } from "../utils"
+import tw from "tailwind.macro"
 
 const Layout: React.FunctionComponent = props => {
   return (
-    <div>
+    <div css={tw`min-h-screen flex flex-col bg-gray-100`}>
       <Global
         styles={css`
           ${globalStyles}
         `}
       />
       <SiteNav />
-      <div>{props.children}</div>
+      {props.children}
+      <SiteFooter />
     </div>
   )
 }

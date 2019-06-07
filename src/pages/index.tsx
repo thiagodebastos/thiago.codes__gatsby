@@ -1,9 +1,7 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { css } from "@emotion/core"
 import { Layout, HeroHeader } from "../components"
 import { formatDate } from "../utils"
-import { CardGrid } from "../components"
 import tw from "tailwind.macro"
 
 interface PageData {
@@ -41,39 +39,33 @@ const Home: React.FunctionComponent<PageData> = ({
   return (
     <Layout>
       <HeroHeader />
-      <section id="work" css={tw`mb-8`}>
-        <header css={tw`bg-cyan-pale py-2 px-8 mb-8`}>
-          <h4>WORK</h4>
-        </header>{" "}
-        <CardGrid />
-      </section>
-      <section id="writing" css={tw`mb-8`}>
-        <header css={tw`bg-cyan-pale py-2 px-8 mb-8`}>
-          <h4>BLOG</h4>
-        </header>{" "}
-        {posts.map(({ node: post }) => (
-          <div key={post.id} css={tw`px-8`}>
-            <div css={tw`text-cyan-800`}>
+      <section id="writing" css={tw`mt-8 flex flex-auto px-8 justify-center`}>
+        <div css={tw`max-w-xl flex-auto`}>
+          {posts.map(({ node: post }) => (
+            <div key={post.id}>
               <Link
                 to={post.fields.slug}
-                css={tw`no-underline text-cyan-900 hover:text-cyan no-underline`}
+                css={tw`text-gray-900 hover:text-gray no-underline`}
                 aria-label={`View ${post.frontmatter.title}`}
               >
-                <h3>{post.frontmatter.title}</h3>
+                <h3 css={tw`mb-0`}>{post.frontmatter.title}</h3>
               </Link>
+              <div css={tw`hidden`}>
+                <span css={tw`text-gray-400`}>
+                  <small css={tw`text-xs`}>
+                    {formatDate(post.fields.date)}
+                  </small>{" "}
+                  &middot;{" "}
+                  <small css={tw`text-xs`}>
+                    {post.fields.readingTime.text}
+                  </small>
+                </span>
+                <div css={tw`text-sm text-gray`}>{post.excerpt}</div>
+              </div>
             </div>
-            <div className="hidden-content" css={tw`hidden`}>
-              <span css={tw`text-cyan-800`}>
-                <small css={tw`text-xs`}>{formatDate(post.fields.date)}</small>{" "}
-                &middot;{" "}
-                <small css={tw`text-xs`}>{post.fields.readingTime.text}</small>
-              </span>
-              <div>{post.excerpt}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
-      <footer>Footer section</footer>
     </Layout>
   )
 }

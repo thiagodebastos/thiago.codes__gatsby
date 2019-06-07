@@ -23,7 +23,7 @@ const Nav = styled.nav`
 `
 
 const NavItemList = styled.ul`
-  ${tw`list-none ml-auto flex flex-grow justify-around px-2 py-4 text-xs`}
+  ${tw`list-none flex mx-auto justify-start px-8 py-4 text-xs max-w-xl`}
 `
 
 const linkStyles = css`
@@ -36,7 +36,7 @@ const NavItem: React.FunctionComponent<MenuItem> = ({
   link,
   external,
 }) => (
-  <li>
+  <li css={tw`mr-2`}>
     {external ? (
       <a href={link} target="_blank" rel="noopener noreferrer" css={linkStyles}>
         {name}
