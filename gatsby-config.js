@@ -19,6 +19,11 @@ module.exports = {
         link: "/#writing",
         external: false,
       },
+      {
+        name: "GITHUB",
+        link: "https://github.com/thiagodebastos",
+        external: true,
+      },
     ],
   },
   plugins: [

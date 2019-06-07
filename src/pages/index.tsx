@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { Layout, HeroHeader, SiteFooter } from "../components"
+import { Layout, HeroHeader } from "../components"
 import { formatDate } from "../utils"
 import tw from "tailwind.macro"
 
