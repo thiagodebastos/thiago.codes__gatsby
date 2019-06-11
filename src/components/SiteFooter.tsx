@@ -28,7 +28,7 @@ const SiteFooter: React.FunctionComponent = props => {
   } = data
 
   return (
-    <footer css={tw`bg-gray-100 mt-12 py-12`}>
+    <footer css={tw`mt-12 py-12`}>
       <div css={tw`max-w-lg mx-auto flex justify-end`}>
         {/*
           <a
