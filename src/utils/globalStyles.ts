@@ -10,10 +10,21 @@ export const base = css`
     -webkit-font-smoothing: auto;
     font-smooth: always;
     font-size: 18px;
+
+    &::-webkit-scrollbar {
+      ${tw`w-4 `}
+    }
+
+    &::-webkit-scrollbar-track {
+      ${tw`bg-white`};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      ${tw`bg-indigo-200`};
+    }
   }
 
   body {
-    background-color: ${tw`bg-white`};
     ${tw`font-sans`};
   }
 `
@@ -26,7 +37,7 @@ export const syntax = css`
   /* Code blocks */
   pre[class*="language-"] {
     overflow: auto;
-    ${tw`p-5`}
+    ${tw`p-5`};
   }
 
   pre[class*="language-"]::-moz-selection {
@@ -54,10 +65,7 @@ export const syntax = css`
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
-    ${tw`bg-white`}
-    border-radius: 0.3em;
-    color: #cc99cd;
-    padding: 0.25em 0.25em 0.15em;
+    ${tw`bg-gray-pale text-violet-300 rounded-sm py-1 px-2`};
     white-space: normal;
   }
 
@@ -66,7 +74,7 @@ export const syntax = css`
   }
 
   .token.comment {
-    color: rgb(128, 147, 147);
+    ${tw`text-gray-300 italic`}
   }
 
   .token.string,
@@ -76,7 +84,7 @@ export const syntax = css`
 
   .token.variable {
     color: rgb(214, 222, 235);
-    font-weight: bold;
+    ${tw`font-bold`};
   }
 
   .token.number {
@@ -107,7 +115,7 @@ export const syntax = css`
   .token.tag,
   .token.operator,
   .token.keyword {
-    color: #ffa7c4;
+    ${tw`text-fuschia-400 font-bold`}
     background: unset;
   }
 
@@ -132,36 +140,50 @@ export const syntax = css`
     position: relative;
   }
   .gatsby-highlight-code-line {
-    background-color: #f5eeee;
+    ${tw`bg-pink-pale`}
     display: block;
-    margin-right: -1.3125rem;
-    margin-left: -1.3125rem;
-    padding-right: calc(1.3125rem - 0.25em);
-    padding-left: calc(1.3125rem - 0.25em);
-    border-left: 0.25em solid pink;
+    width: 100%;
+    /* paddings and margins in here should line up with the article paddings and
+    margins set up in tailwind config */
+    margin-right: -2rem;
+    margin-left: -2rem;
+    padding-left: 1.75rem; /* takes border-left into account */
+    padding-right: 2rem;
+    border-left: 0.25rem solid pink;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
   }
 
   .gatsby-highlight {
-    margin-bottom: 1.75rem;
-    margin-left: -1.3125rem;
-    margin-right: -1.3125rem;
-    border-radius: 10px;
-    background-color: whitesmoke;
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
-  }
+    /* margins match article padding. The negative margins will pull the code
+    syntax box to the blog article's full width, without padding */
+    ${tw`
+      -ml-8 -mr-8 mb-8
+      flex
+      overflow-auto
+      md:rounded-lg
+      bg-white
+      shadow
+      md:shadow-md
+    `};
 
-  /* TODO: make media query respond to ems */
-  @media (max-width: 882px) {
-    .gatsby-highlight {
-      border-radius: 0;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      ${tw`h-3 w-3`}
+    }
+
+    &::-webkit-scrollbar-track {
+    }
+
+    &::-webkit-scrollbar-thumb {
+      ${tw`bg-indigo-pale rounded-lg`}
     }
   }
 
   .gatsby-highlight pre[class*="language-"] {
-    float: left;
-    min-width: 100%;
-    background-color: whitesmoke;
+    ${tw`bg-white p-8`};
+    flex: 1 0 auto;
   }
 `
 
