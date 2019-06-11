@@ -7,13 +7,30 @@ module.exports = {
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
   ],
-  plugins: ["react"],
-  parser: "babel-eslint",
+  plugins: ["react", "@typescript-eslint", "prettier"],
+  env: {
+    browser: true,
+    jest: true,
+  },
+  parser: "@typescript-eslint/parser",
   settings: {
     react: {
+      pragma: "React",
       version: "detect",
     },
+  },
+  rules: {
+    "react/display-name": 0,
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        alloweExpressions: true,
+        allowTypedFunctionExpressions: true,
+      },
+    ],
   },
 }
