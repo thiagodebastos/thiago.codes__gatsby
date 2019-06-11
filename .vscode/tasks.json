@@ -37,6 +37,14 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "type": "npm",
+      "script": "type-check:watch",
+      "problemMatcher": [
+        "$tsc-watch"
+      ],
+      "isBackground": true
     }
   ]
 }
