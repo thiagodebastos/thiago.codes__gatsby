@@ -67,10 +67,10 @@ export default ({ data }: BlogPostWithData): React.ReactNode => {
             <div>{bannerCredit && <Markdown>{bannerCredit}</Markdown>}</div>
           </header>
           <div dangerouslySetInnerHTML={{ __html: html }} />
-          <footer>article footer</footer>
+          {/* <footer>article footer</footer> */}
         </article>
       </main>
-      <footer>blog post footer</footer>
+      {/* <footer>blog post footer</footer> */}
     </Layout>
   )
 }
