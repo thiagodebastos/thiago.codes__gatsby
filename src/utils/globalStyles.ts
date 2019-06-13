@@ -9,19 +9,22 @@ export const base = css`
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
     font-smooth: always;
-    font-size: 18px;
 
     &::-webkit-scrollbar {
-      ${tw`w-4 `}
+      ${tw`w-2 lg:w-4`}
     }
 
     &::-webkit-scrollbar-track {
-      ${tw`bg-white`};
+      ${tw`bg-violet-pale`};
     }
 
     &::-webkit-scrollbar-thumb {
-      ${tw`bg-indigo-200`};
+      ${tw`bg-pink-200 rounded-lg`};
     }
+  }
+
+  *::selection {
+    ${tw`bg-pink-200`}
   }
 
   body {
@@ -30,37 +33,10 @@ export const base = css`
 `
 
 export const syntax = css`
+  /* Code blocks */
   code[class*="language-"],
   pre[class*="language-"] {
     ${tw`font-mono`};
-  }
-  /* Code blocks */
-  pre[class*="language-"] {
-    overflow: auto;
-    ${tw`p-5`};
-  }
-
-  pre[class*="language-"]::-moz-selection {
-    /* Firefox */
-    background: hsl(207, 4%, 16%);
-  }
-
-  pre[class*="language-"]::selection {
-    /* Safari */
-    background: hsl(207, 4%, 16%);
-  }
-
-  /* Text Selection colour */
-  pre[class*="language-"]::-moz-selection,
-  pre[class*="language-"] ::-moz-selection {
-    text-shadow: none;
-    background: hsla(0, 0%, 100%, 0.15);
-  }
-
-  pre[class*="language-"]::selection,
-  pre[class*="language-"] ::selection {
-    text-shadow: none;
-    background: hsla(0, 0%, 100%, 0.15);
   }
 
   /* Inline code */
@@ -70,7 +46,7 @@ export const syntax = css`
   }
 
   .token.attr-name {
-    color: rgb(173, 219, 103);
+    ${tw`text-lime`}
   }
 
   .token.comment {
@@ -79,37 +55,35 @@ export const syntax = css`
 
   .token.string,
   .token.url {
-    color: rgb(173, 219, 103);
+    ${tw`text-lime`}
   }
 
   .token.variable {
-    color: rgb(214, 222, 235);
-    ${tw`font-bold`};
+    ${tw`text-indigo font-bold`};
   }
 
   .token.number {
-    color: rgb(247, 140, 108);
+    ${tw`text-orange`}
   }
 
   .token.builtin,
   .token.char,
   .token.constant,
   .token.function {
-    color: rgb(130, 170, 255);
+    ${tw`text-indigo-400`}
   }
 
   .token.punctuation {
-    color: rgb(199, 146, 234);
+    ${tw`text-pink-300`}
   }
 
   .token.selector,
   .token.doctype {
-    color: rgb(199, 146, 234);
-    font-style: "italic";
+    ${tw`text-indigo-400 italic`}
   }
 
   .token.class-name {
-    color: rgb(255, 203, 139);
+    ${tw`text-pink-400`}
   }
 
   .token.tag,
@@ -120,45 +94,42 @@ export const syntax = css`
   }
 
   .token.boolean {
-    color: rgb(255, 88, 116);
+    ${tw`text-red`}
   }
 
   .token.property {
-    color: rgb(128, 203, 196);
+    ${tw`text-teal-400`}
   }
 
   .token.namespace {
-    color: rgb(178, 204, 214);
+    ${tw`text-indigo-300`}
   }
 
   pre[data-line] {
-    padding: 1em 0 1em 3em;
+    ${tw`py-4 pl-12`}
     position: relative;
   }
-  pre[data-line] {
-    padding: 1em 0 1em 3em;
-    position: relative;
-  }
+
   .gatsby-highlight-code-line {
     ${tw`bg-pink-pale`}
-    display: block;
-    width: 100%;
     /* paddings and margins in here should line up with the article paddings and
     margins set up in tailwind config */
-    margin-right: -2rem;
-    margin-left: -2rem;
     padding-left: 1.75rem; /* takes border-left into account */
-    padding-right: 2rem;
-    border-left: 0.25rem solid pink;
-    padding-bottom: 0.25rem;
-    padding-top: 0.25rem;
+    ${tw`
+      -ml-8 -mr-8
+      pr-8 py-1
+      w-full
+      block
+      border-0 border-solid border-l-4 border-pink-200
+    `}
   }
 
   .gatsby-highlight {
     /* margins match article padding. The negative margins will pull the code
     syntax box to the blog article's full width, without padding */
+
     ${tw`
-      -ml-8 -mr-8 mb-8
+      -ml-8 -mr-8 mt-8
       flex
       overflow-auto
       md:rounded-lg
@@ -177,13 +148,32 @@ export const syntax = css`
     }
 
     &::-webkit-scrollbar-thumb {
-      ${tw`bg-indigo-pale rounded-lg`}
+      ${tw`bg-red-pale rounded-lg`}
     }
   }
 
   .gatsby-highlight pre[class*="language-"] {
     ${tw`bg-white p-8`};
     flex: 1 0 auto;
+  }
+
+  article {
+    blockquote + *,
+    .gatsby-highlight + * {
+      ${tw`mt-8`}
+    }
+
+    blockquote {
+      /** BUG: border-style is not applied to individual sides
+       * tailwindcss issue https://github.com/tailwindcss/tailwindcss/issues/920#issuecomment-49/2423037
+       */
+      ${tw`
+        -ml-8 -mr-8 mt-8
+        py-2 px-6
+        border-solid border-0 border-l-8 border-red-pale
+        italic font-serif
+      `}
+    }
   }
 `
 
