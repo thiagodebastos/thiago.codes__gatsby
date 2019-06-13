@@ -62,6 +62,8 @@ exports.createPages = async ({ graphql, actions }) => {
         description
         date
         banner {
+          extension
+          publicURL
           childImageSharp {
             fluid {
               tracedSVG

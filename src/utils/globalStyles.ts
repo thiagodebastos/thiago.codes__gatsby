@@ -9,159 +9,171 @@ export const base = css`
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
     font-smooth: always;
-    font-size: 18px;
+
+    &::-webkit-scrollbar {
+      ${tw`w-2 lg:w-4`}
+    }
+
+    &::-webkit-scrollbar-track {
+      ${tw`bg-violet-pale`};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      ${tw`bg-pink-200 rounded-lg`};
+    }
+  }
+
+  *::selection {
+    ${tw`bg-pink-200`}
   }
 
   body {
-    background-color: ${tw`bg-white`};
     ${tw`font-sans`};
   }
 `
 
 export const syntax = css`
+  /* Code blocks */
   code[class*="language-"],
   pre[class*="language-"] {
     ${tw`font-mono`};
   }
-  /* Code blocks */
-  pre[class*="language-"] {
-    overflow: auto;
-    ${tw`p-5`}
-  }
-
-  pre[class*="language-"]::-moz-selection {
-    /* Firefox */
-    background: hsl(207, 4%, 16%);
-  }
-
-  pre[class*="language-"]::selection {
-    /* Safari */
-    background: hsl(207, 4%, 16%);
-  }
-
-  /* Text Selection colour */
-  pre[class*="language-"]::-moz-selection,
-  pre[class*="language-"] ::-moz-selection {
-    text-shadow: none;
-    background: hsla(0, 0%, 100%, 0.15);
-  }
-
-  pre[class*="language-"]::selection,
-  pre[class*="language-"] ::selection {
-    text-shadow: none;
-    background: hsla(0, 0%, 100%, 0.15);
-  }
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
-    ${tw`bg-white`}
-    border-radius: 0.3em;
-    color: #cc99cd;
-    padding: 0.25em 0.25em 0.15em;
+    ${tw`bg-gray-pale text-violet-300 rounded-sm py-1 px-2`};
     white-space: normal;
   }
 
   .token.attr-name {
-    color: rgb(173, 219, 103);
+    ${tw`text-lime`}
   }
 
   .token.comment {
-    color: rgb(128, 147, 147);
+    ${tw`text-gray-300 italic`}
   }
 
   .token.string,
   .token.url {
-    color: rgb(173, 219, 103);
+    ${tw`text-lime`}
   }
 
   .token.variable {
-    color: rgb(214, 222, 235);
-    font-weight: bold;
+    ${tw`text-indigo font-bold`};
   }
 
   .token.number {
-    color: rgb(247, 140, 108);
+    ${tw`text-orange`}
   }
 
   .token.builtin,
   .token.char,
   .token.constant,
   .token.function {
-    color: rgb(130, 170, 255);
+    ${tw`text-indigo-400`}
   }
 
   .token.punctuation {
-    color: rgb(199, 146, 234);
+    ${tw`text-pink-300`}
   }
 
   .token.selector,
   .token.doctype {
-    color: rgb(199, 146, 234);
-    font-style: "italic";
+    ${tw`text-indigo-400 italic`}
   }
 
   .token.class-name {
-    color: rgb(255, 203, 139);
+    ${tw`text-pink-400`}
   }
 
   .token.tag,
   .token.operator,
   .token.keyword {
-    color: #ffa7c4;
+    ${tw`text-fuschia-400 font-bold`}
     background: unset;
   }
 
   .token.boolean {
-    color: rgb(255, 88, 116);
+    ${tw`text-red`}
   }
 
   .token.property {
-    color: rgb(128, 203, 196);
+    ${tw`text-teal-400`}
   }
 
   .token.namespace {
-    color: rgb(178, 204, 214);
+    ${tw`text-indigo-300`}
   }
 
   pre[data-line] {
-    padding: 1em 0 1em 3em;
+    ${tw`py-4 pl-12`}
     position: relative;
   }
-  pre[data-line] {
-    padding: 1em 0 1em 3em;
-    position: relative;
-  }
+
   .gatsby-highlight-code-line {
-    background-color: #f5eeee;
-    display: block;
-    margin-right: -1.3125rem;
-    margin-left: -1.3125rem;
-    padding-right: calc(1.3125rem - 0.25em);
-    padding-left: calc(1.3125rem - 0.25em);
-    border-left: 0.25em solid pink;
+    ${tw`bg-pink-pale`}
+    /* paddings and margins in here should line up with the article paddings and
+    margins set up in tailwind config */
+    padding-left: 1.75rem; /* takes border-left into account */
+    ${tw`
+      -ml-8 -mr-8
+      pr-8 py-1
+      w-full
+      block
+      border-0 border-solid border-l-4 border-pink-200
+    `}
   }
 
   .gatsby-highlight {
-    margin-bottom: 1.75rem;
-    margin-left: -1.3125rem;
-    margin-right: -1.3125rem;
-    border-radius: 10px;
-    background-color: whitesmoke;
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
-  }
+    /* margins match article padding. The negative margins will pull the code
+    syntax box to the blog article's full width, without padding */
 
-  /* TODO: make media query respond to ems */
-  @media (max-width: 882px) {
-    .gatsby-highlight {
-      border-radius: 0;
+    ${tw`
+      -ml-8 -mr-8 mt-8
+      flex
+      overflow-auto
+      md:rounded-lg
+      bg-white
+      shadow
+      md:shadow-md
+    `};
+
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      ${tw`h-3 w-3`}
+    }
+
+    &::-webkit-scrollbar-track {
+    }
+
+    &::-webkit-scrollbar-thumb {
+      ${tw`bg-red-pale rounded-lg`}
     }
   }
 
   .gatsby-highlight pre[class*="language-"] {
-    float: left;
-    min-width: 100%;
-    background-color: whitesmoke;
+    ${tw`bg-white p-8`};
+    flex: 1 0 auto;
+  }
+
+  article {
+    blockquote + *,
+    .gatsby-highlight + * {
+      ${tw`mt-8`}
+    }
+
+    blockquote {
+      /** BUG: border-style is not applied to individual sides
+       * tailwindcss issue https://github.com/tailwindcss/tailwindcss/issues/920#issuecomment-49/2423037
+       */
+      ${tw`
+        -ml-8 -mr-8 mt-8
+        py-2 px-6
+        border-solid border-0 border-l-8 border-red-pale
+        italic font-serif
+      `}
+    }
   }
 `
 
