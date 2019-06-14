@@ -30,6 +30,10 @@ export const base = css`
   body {
     ${tw`font-sans`};
   }
+
+  hr {
+    ${tw`border-none border-solid border-t-8 border-pink-pale w-2/3 my-8`};
+  }
 `
 
 export const syntax = css`
