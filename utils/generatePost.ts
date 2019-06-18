@@ -1,5 +1,4 @@
 import fs from "fs"
-import path from "path"
 import postTemplate from "./postTemplate"
 
 const args = process.argv.slice(2)
@@ -8,20 +7,25 @@ function makeDir(dir: string): void {
   fs.mkdirSync(`${dir}/images`, { recursive: true })
 }
 
-function generate(postName: string): void {
-  const formattedFolderName = postName
+function formatString(str: string, separator: string = "-") {
+  return str
     .toLowerCase()
     .split(" ")
-    .join("-")
-  makeDir(`content/blog/${formattedFolderName}`)
+    .join(separator)
+}
+
+function generate(postName: string, category: string = "blog"): void {
+  const formattedFolderName = formatString(postName)
+
+  makeDir(`content/${category}/${formattedFolderName}`)
 
   fs.writeFileSync(
-    `content/blog/${formattedFolderName}/index.md`,
+    `content/${category}/${formattedFolderName}/index.md`,
     postTemplate(postName, formattedFolderName)
   )
 
   console.log(`
-  Created new post: ${postName} at content/blog/${formattedFolderName}
+  Created new post: ${postName} at content/${category}/${formattedFolderName}
   `)
 }
 
