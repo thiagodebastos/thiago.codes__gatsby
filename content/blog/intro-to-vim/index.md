@@ -1,7 +1,7 @@
 ---
 slug: "intro-to-vim"
 title: Introduction VIM
-date: '2019-04-07'
+date: "2019-04-07"
 author: Thiago de Bastos
 description: How to set up and get started with Vim
 keywords:
@@ -10,8 +10,7 @@ keywords:
   - vim
   - productivity
 banner: ./images/banner.png
-bannerCredit:
-  'Photo by [Some awesome photographer](#)'
+bannerCredit: "Photo by [Some awesome photographer](#)"
 ---
 
 In this post I will introduce you to Vim and help you get started with a basic Javascript development environment.
