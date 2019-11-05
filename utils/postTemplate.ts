@@ -1,6 +1,6 @@
 import pkgJson from "../package.json"
 
-export default function postTemplate(title: string, slug: string) {
+export default function postTemplate(title: string, slug: string): string {
   const today = new Date()
   const day = today.getDate()
   const month = today.getMonth()

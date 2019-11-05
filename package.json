@@ -12,7 +12,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{ts,tsx}",
     "start": "yarn develop",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
@@ -63,6 +63,7 @@
     "prettier": "^1.18.2",
     "remark": "^10.0.1",
     "strip-markdown": "^3.0.3",
+    "ts-node": "^8.4.1",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",

@@ -7,7 +7,7 @@ function makeDir(dir: string): void {
   fs.mkdirSync(`${dir}/images`, { recursive: true })
 }
 
-function formatString(str: string, separator: string = "-") {
+function formatString(str: string, separator: string = "-"): string {
   return str
     .toLowerCase()
     .split(" ")
