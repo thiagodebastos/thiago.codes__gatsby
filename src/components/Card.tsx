@@ -6,7 +6,7 @@ interface CardProps {
   bgImgUrl: string
 }
 
-const Card: React.FunctionComponent<CardProps> = ({ bgImgUrl }) => {
+function Card({ bgImgUrl }: CardProps): React.ReactElement {
   return (
     <div
       css={tw`rounded overflow-hidden shadow-lg mx-auto mb-6 md:px-4 md:w-1/3 max-w-sm`}
