@@ -12,7 +12,7 @@ interface PageData {
       }
     }
     allMarkdownRemark: {
-      edges: Array<{
+      edges: {
         node: {
           id: string
           excerpt: string
@@ -27,7 +27,7 @@ interface PageData {
             }
           }
         }
-      }>
+      }[]
     }
   }
 }
@@ -45,7 +45,7 @@ const Home: React.FunctionComponent<PageData> = ({
             <div key={post.id}>
               <Link
                 to={post.fields.slug}
-                css={tw`text-gray-900 hover:text-gray no-underline`}
+                css={tw`text-black hover:text-gray no-underline`}
                 aria-label={`View ${post.frontmatter.title}`}
               >
                 <h3 css={tw`mb-0`}>{post.frontmatter.title}</h3>

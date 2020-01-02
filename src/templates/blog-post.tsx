@@ -6,7 +6,7 @@ import { Layout } from "../components"
 import { formatDate } from "../utils"
 import tw from "tailwind.macro"
 
-type Banner = {
+interface Banner {
   extension: string
   publicURL: string
   childImageSharp: {
@@ -44,7 +44,7 @@ export default ({ data }: BlogPostWithData): React.ReactNode => {
 
     if (banner) {
       if (!childImageSharp && extension === "svg") {
-        return <img src={publicURL} width="100%" />
+        return <img src={publicURL} width="100%" alt="banner" />
       }
       if (childImageSharp) {
         return <Img fluid={childImageSharp.fluid} />
@@ -54,7 +54,7 @@ export default ({ data }: BlogPostWithData): React.ReactNode => {
 
   return (
     <Layout noBgColor>
-      <main css={tw`flex flex-col flex-auto px-8 text-cyan-900`}>
+      <main css={tw`flex flex-col flex-auto px-8 text-black`}>
         <article css={tw`max-w-xl self-center w-full leading-normal`}>
           <header>
             <h1 css={tw`text-3xl`}>{title}</h1>
